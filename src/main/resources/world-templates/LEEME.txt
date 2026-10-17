@@ -1,0 +1,41 @@
+Carpeta de mapas personalizados (opcional)
+==========================================
+
+EventoPvP YA INCLUYE el lobby y las 5 arenas dentro del propio plugin: al
+arrancar los instala solo, sin Multiverse ni subir mapas aparte. Esta carpeta
+solo sirve para SOBREESCRIBIR esos mapas con los tuyos.
+
+Cómo usarla
+-----------
+Para cada mundo, deja UNA de estas dos cosas con el nombre EXACTO configurado
+en config.yml (por defecto: evento_lobby, evento_arena_1 ... evento_arena_5):
+
+  * La carpeta del mundo, tal cual (con su level.dat), por ejemplo:
+        world-templates/evento_lobby/
+        world-templates/evento_arena_1/
+
+  * O un .zip de la carpeta del mundo, por ejemplo:
+        world-templates/evento_arena_1.zip   (dentro debe estar el contenido:
+        level.dat, region/, etc.; si está todo dentro de una subcarpeta,
+        el plugin lo detectará igual)
+
+Prioridad: primero se usa lo que haya AQUÍ; si no, el mapa incluido en el
+plugin; y si tampoco, se crea un mundo vacío (plano).
+
+Al arrancar, si el mundo todavía NO existe en el servidor, EventoPvP lo copia
+(o descomprime) a la carpeta de mundos del servidor y lo carga.
+
+- Si el mapa está construido en el nether (carpeta DIM-1) o en el end
+  (carpeta DIM1), el plugin lo carga con esa dimensión automáticamente.
+- El plugin también corrige plantillas anidadas (carpeta/carpeta/level.dat).
+
+Notas
+-----
+- Si el mundo YA está subido al servidor, no hace falta nada aquí: el plugin lo reconoce solo.
+- Si el plugin ya creó un mundo vacío con ese nombre y luego quieres usar tu mapa:
+  para el servidor, borra (o renombra) la carpeta de ese mundo en el servidor, deja
+  tu mapa aquí y vuelve a arrancar (o usa /evento instalar).
+- Los puntos de aparición de cada arena se generan solos alrededor del spawn del
+  mundo si la arena no tiene ninguno (ver "worlds.auto-spawns"). Puedes ajustarlos
+  dentro del juego con /evento spawn <arena> estando en ese mundo.
+- Nunca borres esta carpeta mientras el evento esté en curso.

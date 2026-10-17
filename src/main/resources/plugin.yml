@@ -1,0 +1,16 @@
+name: EventoPvP
+version: 1.2.0
+main: com.eventopvp.EventoPvP
+api-version: '26.2'
+description: Evento PvP quincenal con lobby y arenas en mundos propios, inventarios separados, hordas, marcador y estadisticas.
+commands:
+  evento:
+    description: Evento PvP
+    usage: /evento [aceptar|top|stats|ranking|proximo|info]
+permissions:
+  evento.admin:
+    description: Administrar el evento PvP
+    default: op
+  evento.join:
+    description: Participar en el evento PvP
+    default: true

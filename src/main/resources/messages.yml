@@ -1,0 +1,143 @@
+# =====================================================================
+#  Mensajes del plugin — formato MiniMessage (colores, gradientes, negrita)
+#  Placeholders entre < > que sustituye el código del plugin.
+#
+#  IMPORTANTE: un <texto> que NO sea un placeholder ni una etiqueta
+#  MiniMessage se borra del mensaje. Para texto de ejemplo usa MAYÚSCULAS
+#  sin signos:  /evento spawn ARENA   ·   /evento [top, stats]
+# =====================================================================
+
+# Versión del archivo. Al subir una versión nueva, el plugin respalda el
+# antiguo (messages-v1.bak) y genera este automáticamente.
+messages-version: 2
+
+# --- cabecera que se antepone a la mayoría de mensajes
+prefix: "<gradient:#ffd76a:#ff8c3a><bold>» EVENTO PVP «</bold></gradient><dark_gray>   </dark_gray>"
+
+# =====================================================================
+#  CUENTA ATRÁS Y AVISOS
+# =====================================================================
+countdown-chat: "<gradient:#ff9a00:#ffe259><bold>⏳ ¡ATENCIÓN!</bold></gradient> <dark_gray>│ </dark_gray><gray>El evento PvP comienza en</gray> <gold><bold><seconds></bold></gold> <gray>segundos. ¡Prepárate!</gray>"
+countdown-title: "<gradient:#ff9a00:#ffe259><bold>¡<seconds>!</bold></gradient>"
+countdown-subtitle: "<gold><bold>⚔ EVENTO PvP ⚔</bold></gold><dark_gray> │ </dark_gray><yellow>Prepárate para luchar</yellow>"
+reminder: "<gold><bold>⏰ RECORDATORIO</bold></gold> <dark_gray>│ </dark_gray><gray>El evento PvP empieza en</gray> <yellow><bold><minutes></bold></yellow> <gray>minuto(s).\nTu inventario se guarda al entrar y se devuelve al terminar.</gray>"
+invite-chat: "<gradient:#4dff9f:#00e5ff><bold>¡ÚNETE AHORA!</bold></gradient> <dark_gray>│ </dark_gray><gray>Tienes</gray> <gold><bold><seconds> s</bold></gold> <gray>para aceptar la invitación.</gray> <click:run_command:'/evento aceptar'><hover:show_text:'Haz clic para entrar al evento PvP'><aqua><bold>【 CLIC AQUÍ PARA ASISTIR 】</bold></aqua></hover></click>"
+
+# =====================================================================
+#  DIÁLOGO DE INVITACIÓN
+# =====================================================================
+dialog-title: "<gradient:#ffd76a:#ff8c3a><bold>⚔ EVENTO PvP</bold></gradient>"
+dialog-body: "¿Deseas asistir al evento PvP?\n\n• Tu inventario se guardará y te lo devolveremos al terminar.\n• Todos pelean con el mismo kit, sin equipos.\n• Solo los participantes pueden entrar en la arena."
+dialog-yes: "<green><bold>✔ Sí, quiero asistir</bold></green>"
+dialog-yes-tip: "Entrar al evento PvP"
+dialog-no: "<red><bold>✘ No, gracias</bold></red>"
+dialog-no-tip: "Ahora no participar"
+
+# =====================================================================
+#  ENTRADA Y ERRORES
+# =====================================================================
+joined: "<green><bold>✔ BIENVENIDO AL EVENTO</bold></green>\n<gray>Espera en el lobby: el combate comienza en breve.</gray>"
+rejoin: "<green><bold>✔ YA ESTÁS DENTRO</bold></green> <gray>Te reincorporaste al evento en curso.</gray>"
+no-invite: "<red><bold>✘ SIN INVITACIÓN</bold></red> <gray>No hay una invitación activa ahora mismo.</gray>"
+full: "<red><bold>✘ EVENTO LLENO</bold></red> <gray>Ya no quedan plazas; inténtalo en el próximo.</gray>"
+snapshot-failed: "<red><bold>✘ INVENTARIO NO GUARDADO</bold></red> <gray>No se pudo guardar tu equipo, no puedes entrar ahora.</gray>"
+no-permission: "<red><bold>✘ SIN PERMISO</bold></red> <gray>No tienes permiso para usar este comando.</gray>"
+already-running: "<red><bold>✘ EVENTO EN CURSO</bold></red> <gray>Espera a que termine antes de iniciar otro.</gray>"
+no-arenas: "<red><bold>✘ NO HAY ARENAS DISPONIBLES</bold></red>\n<gray>Configura los puntos de inicio con</gray> <gold><bold>/evento spawn ARENA</bold></gold>"
+no-world: "<red><bold>✘ MUNDO NO DISPONIBLE</bold></red> <gray>El mundo del evento no está cargado en el servidor.</gray>"
+not-running: "<gray><bold>— EVENTO INACTIVO</bold></gray> <gray>No hay ningún evento en curso.</gray>"
+cancelled-few: "<red><bold>✘ EVENTO CANCELADO</bold></red> <gray>No hubo suficientes participantes para empezar.</gray>"
+cancelled-admin: "<red><bold>✘ EVENTO CANCELADO</bold></red> <gray>Un administrador detuvo el evento.</gray>"
+cmd-blocked: "<red><bold>✘ COMANDO BLOQUEADO</bold></red> <gray>No puedes usar ese comando mientras dura el evento.</gray>"
+restored: "<green><bold>✔ INVENTARIO RESTAURADO</bold></green> <gray>Recuperaste todo lo que llevabas antes.</gray>"
+world-restricted: "<red><bold>✘ ZONA RESTRINGIDA</bold></red> <gray>El mundo del evento es solo para participantes.</gray>"
+
+# =====================================================================
+#  INICIO DEL COMBATE (títulos en pantalla)
+# =====================================================================
+start-title: "<gradient:#ff3b30:#ffd60a><bold>¡<seconds>!</bold></gradient>"
+start-subtitle: "<gold><bold>Prepárate para pelear…</bold></gold>"
+fight-start: "<gradient:#ff3b30:#ffd60a><bold>💥 ¡COMENZÓ EL EVENTO!</bold></gradient> <dark_gray>│ </dark_gray><gray>Participantes:</gray> <gold><bold><players></bold></gold>"
+title-go: "<gradient:#ff1b1b:#ffd60a><bold>¡¡¡ PELEEN !!!</bold></gradient>"
+title-go-sub: "<yellow><bold>Arena: <arena></bold></yellow>"
+arena-warning: "<gold><bold>⚠ CAMBIO DE ARENA</bold></gold> <dark_gray>│ </dark_gray><yellow>La arena cambiará en 5 segundos…</yellow>"
+title-arena: "<gradient:#00e5ff:#7c4dff><bold>⚡ NUEVA ARENA ⚡</bold></gradient>"
+title-arena-sub: "<yellow><bold><arena></bold></yellow>"
+
+# =====================================================================
+#  COMBATE
+# =====================================================================
+kill: "<gradient:#ff8a00:#ffd45e><bold>☠ ELIMINACIÓN</bold></gradient> <dark_gray>│ </dark_gray><green><killer></green> <gray>abatió a</gray> <red><victim></red> <gray>con</gray> <yellow><weapon></yellow> <dark_gray>·</dark_gray> <gold><kills> kills</gold>"
+death: "<red><bold>☠ MUERTE</bold></red> <dark_gray>│ </dark_gray><red><victim></red> <gray>ha caído en la arena</gray> <dark_gray>·</dark_gray> <gray><deaths> muertes</gray>"
+totem: "<gold><bold>🛡 ¡TÓTEM ROTO!</bold></gold> <dark_gray>│ </dark_gray><green><attacker></green> <gray>reventó el tótem de</gray> <red><victim></red> <dark_gray>·</dark_gray> <gold><totems> tótems</gold>"
+first-blood: "<dark_red><bold>☣ ¡PRIMERA SANGRE!</bold></dark_red> <green><killer></green> <gray>derramó la primera sangre del evento.</gray>"
+streak: "<gradient:#ff4ecd:#b15cff><bold>🔥 ¡RACHA EN CURSO!</bold></gradient> <green><player></green> <gray>lleva</gray> <gold><bold><streak> kills</bold></gold> <gray>seguidas.</gray>"
+shutdown: "<aqua><bold>⚡ RACHA DETENIDA</bold></aqua> <green><killer></green> <gray>terminó la racha de</gray> <red><victim></red> <dark_gray>(<streak>)</dark_gray>"
+horde-wave: "<dark_red><bold>☣ HORDA <wave></bold></dark_red> <red>¡Los mobs invaden la arena, a defenderse!</red>"
+score-announce: "<dark_gray>───────────────────────────</dark_gray>\n<gray>Mayor número de kills:</gray> <green><bold><kills_name></bold></green> <dark_gray>(<kills>)</dark_gray>\n<gray>Mayor número de muertes:</gray> <red><bold><deaths_name></bold></red> <dark_gray>(<deaths>)</dark_gray>\n<dark_gray>───────────────────────────</dark_gray>"
+
+# =====================================================================
+#  BARRA DE PROGRESO (bossbar)
+# =====================================================================
+bar-waiting: "<gradient:#ffd76a:#ff8c3a><bold>⏳ EVENTO PVP</bold></gradient> <dark_gray>│</dark_gray> <yellow>comienza en <seconds> s</yellow> <dark_gray>│</dark_gray> <white><players> participantes</white>"
+bar-starting: "<red><bold>💥 ¡ATENCIÓN!</bold></red> <dark_gray>│</dark_gray> <gold>el combate empieza en <seconds> s</gold>"
+bar-running: "<red><bold>⚔ EN COMBATE</bold></red> <dark_gray>│</dark_gray> <yellow><time> restantes</yellow> <dark_gray>│</dark_gray> <white>Arena: <arena></white>"
+
+# =====================================================================
+#  MARCADOR LATERAL (una línea por clave)
+# =====================================================================
+sb-title: "<gradient:#ffd76a:#ff8c3a><bold>⚔ EVENTO PVP ⚔</bold></gradient>"
+sb-time: " <dark_gray>├</dark_gray> <yellow>Tiempo</yellow> <white><time></white>"
+sb-arena: " <dark_gray>├</dark_gray> <yellow>Arena</yellow> <white><arena></white>"
+sb-kills: " <dark_gray>├</dark_gray> <green>Kills</green> <white><kills></white> <dark_gray>·</dark_gray> <red>Muertes</red> <white><deaths></white>"
+sb-streak: " <dark_gray>├</dark_gray> <light_purple>Racha</light_purple> <white><streak></white> <dark_gray>· mejor</dark_gray> <white><best></white>"
+sb-top-header: " <gold><bold>🏆 TOP KILLS</bold></gold>"
+sb-top-entry: " <dark_gray>│</dark_gray> <gray><pos>.</gray> <white><player></white> <green><kills></green>"
+
+# =====================================================================
+#  RESULTADOS FINALES
+# =====================================================================
+results-header: "<gradient:#ffd76a:#ff8c3a><bold>🏆 ¡EL EVENTO TERMINÓ!</bold></gradient>\n<dark_gray>════════════════════════</dark_gray>"
+results-line: "<gold><pos>.</gold> <white><player></white> <dark_gray>—</dark_gray> <green>✔ <kills> kills</green> <dark_gray>·</dark_gray> <red>✘ <deaths> muertes</red> <dark_gray>·</dark_gray> <gold>🛡 <totems> tótems</gold>"
+winner-title: "<gradient:#ffd76a:#ff8c3a><bold>🏆 ¡<player> GANÓ!</bold></gradient>"
+winner-sub: "<yellow><bold><kills> kills</bold></yellow> <dark_gray>·</dark_gray> <red><bold><deaths> muertes</bold></red>"
+no-winner: "<gray><bold>NADIE ANOTÓ KILLS</bold></gray> <dark_gray>—</dark_gray> <gray>No hay ganador esta vez.</gray>"
+
+# =====================================================================
+#  COMANDOS Y UTILIDADES
+# =====================================================================
+usage: "<gradient:#ffd76a:#ff8c3a><bold>▎ USO DEL COMANDO</bold></gradient>\n<white>» /evento [aceptar, top, stats, ranking, proximo, info]</white>\n<gray>» Admin:</gray> <dark_gray>/evento [iniciar, detener, spawn, lobby, borrar, lista, tparena, mundo, expulsar, recargar, instalar]</dark_gray>"
+only-players: "<red><bold>✘ SOLO JUGADORES</bold></red> <gray>Ese comando solo funciona dentro del juego.</gray>"
+unknown-sub: "<red><bold>✘ SUBCOMANDO DESCONOCIDO</bold></red> <gray>Escribe</gray> <gold><bold>/evento</bold></gold> <gray>para ver todas las opciones.</gray>"
+reloaded: "<green><bold>✔ RECARGADO CORRECTAMENTE</bold></green> <gray>Configuración y mensajes actualizados.</gray>"
+install-ok: "<green><bold>✔ MUNDOS LISTOS</bold></green>\n<gray>Lobby:</gray> <white><lobby></white> <dark_gray>·</dark_gray> <gray><n> arenas configuradas</gray>"
+started-ok: "<green><bold>✔ EVENTO INICIADO</bold></green> <gray>La cuenta atrás ya está en marcha.</gray>"
+
+# --- administración de spawns
+spawn-usage: "<gradient:#ffd76a:#ff8c3a><bold>▎ USO</bold></gradient> <white>/evento spawn ARENA [set|add|clear]</white>\n<dark_gray>  Debes estar dentro del mundo de esa arena.</dark_gray>"
+arena-usage: "<gradient:#ffd76a:#ff8c3a><bold>▎ USO</bold></gradient> <white>/evento tparena ARENA</white> <dark_gray>·</dark_gray> <white>/evento borrar ARENA</white>"
+spawn-world: "<red><bold>✘ MUNDO INCORRECTO</bold></red> <gray>Debes estar en el mundo</gray> <gold><bold><arena></bold></gold> <gray>(usa</gray> <white>/evento tparena <arena></white><gray>).</gray>"
+spawn-set: "<green><bold>✔ SPAWN FIJADO</bold></green> <gray>La arena</gray> <gold><bold><arena></bold></gold> <gray>ahora arranca en tu posición.</gray>"
+spawn-added: "<green><bold>✔ PUNTO AÑADIDO</bold></green> <gray>Arena</gray> <gold><bold><arena></bold></gold> <dark_gray>│ </dark_gray><gray>ahora tiene</gray> <white><n></white> <gray>puntos.</gray>"
+spawn-cleared: "<yellow><bold>◌ SPAWNS BORRADOS</bold></yellow> <gray>Se eliminaron todos los puntos de</gray> <gold><bold><arena></bold></gold>."
+lobby-set: "<green><bold>✔ LOBBY ACTUALIZADO</bold></green> <gray>El lobby del evento quedó fijado en tu posición.</gray>"
+lobby-world: "<red><bold>✘ MUNDO INCORRECTO</bold></red> <gray>Debes estar en el mundo del lobby</gray> <gold><bold><lobby></bold></gold><gray>.</gray>"
+arena-deleted: "<yellow><bold>◌ ARENA BORRADA</bold></yellow> <gray>Se eliminaron los spawns de</gray> <gold><bold><arena></bold></gold>."
+arena-missing: "<red><bold>✘ ARENA NO ENCONTRADA</bold></red> <gray>La arena</gray> <gold><arena></gold> <gray>no existe o no tiene spawns.</gray>"
+arena-no-spawn: "<red><bold>✘ SIN PUNTOS DE SPAWN</bold></red> <gray>La arena</gray> <gold><bold><arena></bold></gold> <gray>no tiene puntos; créalos con</gray> <white>/evento spawn <arena></white>."
+arena-none: "<gray><bold>— NO HAY ARENAS</bold></gray> <gray>Crea la primera con</gray> <gold><bold>/evento spawn ARENA</bold></gold>"
+arena-line: " <gold>◆</gold> <yellow><bold><arena></bold></yellow> <dark_gray>│</dark_gray> <gray><n> spawns</gray>"
+tparena-ok: "<green><bold>✔ TELETRANSPORTADO</bold></green> <gray>Has llegado a la arena</gray> <gold><bold><arena></bold></gold>."
+kick-ok: "<yellow><bold>◌ JUGADOR EXPULSADO</bold></yellow> <gold><player></gold> <gray>fuera del evento.</gray>"
+kick-none: "<red><bold>✘ NO ESTÁ EN EL EVENTO</bold></red> <gray>Ese jugador no participa en el evento.</gray>"
+
+# --- información
+info: "<gradient:#ffd76a:#ff8c3a><bold>▎ INFORMACIÓN</bold></gradient>\n<dark_gray>  ▸</dark_gray> <gray>Estado:</gray> <gold><bold><state></bold></gold> <dark_gray>▸</dark_gray> <gray>Participantes:</gray> <green><players></green>\n<dark_gray>  ▸</dark_gray> <gray>Arena:</gray> <yellow><arena></yellow> <dark_gray>▸</dark_gray> <gray>Tiempo:</gray> <yellow><time></yellow>"
+next-event: "<gradient:#00e5ff:#7c4dff><bold>📅 PRÓXIMO EVENTO</bold></gradient> <dark_gray>│ </dark_gray><white><date></white> <dark_gray>(en</dark_gray> <yellow><left></yellow><dark_gray>)</dark_gray>"
+next-none: "<gray><bold>— SIN PROGRAMAR</bold></gray> <gray>No hay ningún evento programado.</gray>"
+stats-line: "<gold><bold><player></bold></gold> <dark_gray>│</dark_gray> <gray>Eventos</gray> <white><events></white> <dark_gray>·</dark_gray> <green>Victorias</green> <white><wins></white> <dark_gray>·</dark_gray> <aqua>Kills</aqua> <white><kills></white> <dark_gray>·</dark_gray> <red>Muertes</red> <white><deaths></white> <dark_gray>·</dark_gray> <gold>Tótems</gold> <white><totems></white> <dark_gray>·</dark_gray> <light_purple>Mejor racha</light_purple> <white><streak></white>"
+stats-none: "<gray><bold>— SIN DATOS</bold></gray> <gray>No hay estadísticas para ese jugador.</gray>"
+ranking-header: "<gradient:#ffd76a:#ff8c3a><bold>▎ RANKING: <stat></bold></gradient>"
+ranking-line: "<gray><pos>.</gray> <white><bold><player></bold></white> <dark_gray>—</dark_gray> <yellow><value></yellow>"
+ranking-empty: "<gray><bold>— AÚN NO HAY DATOS</bold></gray> <gray>El ranking se llenará con el tiempo.</gray>"
+top-line: "<gold><bold><pos>º</bold></gold> <white><player></white> <dark_gray>—</dark_gray> <green><kills> kills</green> <dark_gray>·</dark_gray> <red><deaths> muertes</red>"

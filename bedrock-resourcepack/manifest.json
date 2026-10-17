@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "EventoPvP · Marcador transparente",
+    "description": "Quita el fondo negro/gris del marcador lateral (sidebar) en Bedrock. Pensado para servidores con Geyser.\n\nEventoPvP",
+    "uuid": "d2e02e38-041d-455b-9934-4dce741fdb88",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "7afc63f6-aca8-4c65-826c-dba07cf10542",
+      "version": [1, 0, 0]
+    }
+  ]
+}

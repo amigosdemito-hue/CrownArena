@@ -1,0 +1,104 @@
+# ===== EventoPvP 1.2 =====
+# Los textos se editan en messages.yml (formato MiniMessage).
+
+# ===== Mundos del evento =====
+# El plugin carga estos mundos al arrancar (lobby + arenas, una por mundo).
+# Si un mundo no existe en el servidor, lo copia desde plugins/EventoPvP/world-templates/<nombre>/
+# (carpeta o <nombre>.zip) y, si tampoco está ahí, lo crea vacío si create-world-if-missing es true.
+# Los mundos base también se pueden dejar ya subidos al servidor: el plugin los reconocerá solo.
+# El plugin detecta si un mapa está en el nether (DIM-1) o el end (DIM1) y lo carga con su dimensión,
+# y también corrige plantillas que vengan anidadas (carpeta/carpeta/level.dat).
+worlds:
+  lobby: evento_lobby
+  arenas: [evento_arena_1, evento_arena_2, evento_arena_3, evento_arena_4, evento_arena_5]
+  auto-spawns: true              # crea puntos de aparición automáticos si una arena no tiene
+  spawns-per-arena: 8            # cuántos spawns automáticos por arena
+  spawn-radius: 12               # radio (bloques) de esos spawns alrededor del spawn del mundo
+create-world-if-missing: true    # si falta el mundo y no hay plantilla, créalo vacío
+world-difficulty: NORMAL         # PEACEFUL/EASY/NORMAL/HARD; se fuerza en lobby y arenas (evita mapas en Peaceful, donde no baja la vida ni el hambre)
+
+# Programación. Por defecto: día por medio (every-days: 2), con la hora según el día de la
+# semana en que caiga el evento. Todo editable aquí. También puedes lanzarlo a mano con /evento iniciar.
+schedule:
+  enabled: true
+  timezone: America/Mexico_City
+  first-date: "2026-10-19"       # primer evento (AAAA-MM-DD). Marca el inicio del ciclo (lunes).
+  every-days: 2                  # 2 = día por medio (1 = todos los días)
+  times:                         # hora local (HH:mm) para cada día de la semana
+    lunes: "20:21"
+    martes: "16:30"
+    miercoles: "20:21"
+    jueves: "16:30"
+    viernes: "20:21"
+    sabado: "18:40"
+    domingo: "20:21"
+  # time: "20:00"                # (opcional) hora única para todos los días, si no usas 'times'
+  reminders-minutes: [30, 10, 5, 1]   # avisos globales antes de empezar
+
+countdown-seconds: 10            # cronómetro antes de mostrar el diálogo
+accept-window-seconds: 30        # tiempo para aceptar (esperan en el lobby, sin daño)
+lobby-countdown-seconds: 5       # cuenta final antes de soltar a todos en la arena
+duration-minutes: 20             # duración del combate
+arena-rotation-minutes: 4        # cambio automático de arena
+ending-seconds: 8                # tiempo de resultados/fuegos antes de devolver inventarios
+announce-interval-seconds: 60    # marcador global (más kills / más muertes)
+min-players: 2
+max-players: 0                   # 0 = sin límite
+spawn-protection-seconds: 3      # invulnerabilidad al reaparecer/cambiar de arena (se pierde al atacar)
+hunger: vanilla                  # hambre/regeneración: vanilla (normal, la comida baja y la regeneración depende de ella) o locked (comida siempre llena, sin hambre)
+combat-tag-seconds: 10           # ventana para atribuir un tótem reventado al último atacante
+streaks: [3, 5, 7, 10]           # rachas que se anuncian
+reset-kit-on-respawn: true       # reaparecer = kit completo otra vez
+allow-building: false
+
+# Hordas de mobs durante el combate (solo en la arena actual).
+# El mundo del evento nunca tiene mobs naturales (solo admins y participantes pueden
+# entrar) y las explosiones no destruyen el terreno del evento.
+mobs:
+  enabled: true
+  first-wave-seconds: 45         # cuándo aparece la primera horda
+  interval-seconds: 60           # cada cuánto aparece una horda nueva
+  base-count: 4                  # mobs de la primera horda
+  count-per-wave: 3              # mobs extra por cada horda posterior
+  max-count: 16                  # máximo de mobs de horda vivos a la vez
+  types: [ZOMBIE, SKELETON, SPIDER]
+
+# Extras visuales
+scoreboard: true                 # marcador lateral con tus stats y el top
+bossbar: true                    # barra con tiempo restante
+sounds: true
+fireworks: true                  # fuegos artificiales sobre el ganador
+
+# Bedrock (jugadores que entran por Geyser): el cliente dibuja un fondo negro detrás del
+# marcador lateral. Este resource pack lo deja transparente. Si Geyser corre en este mismo
+# servidor, se instala solo en su carpeta "packs"; si Geyser está en un proxy, copia
+# plugins/EventoPvP/... el archivo EventoPvP-ScoreboardTransparente.zip a mano en la carpeta
+# "packs" del proxy (o extrae el pack del jar). Ponlo en false para desactivarlo.
+bedrock:
+  scoreboard-transparent: true
+
+# Comandos permitidos a participantes (los admins no tienen restricción).
+allowed-commands: [evento, msg, tell, w, r, reply]
+
+# Comandos de consola para el top 3 (solo si tuvo kills). Usa {player}.
+rewards:
+  first: []     # ej: ["give {player} diamond 10", "lp user {player} permission settemp evento.campeon true 14d"]
+  second: []
+  third: []
+
+# Kit igual para todos. Formato: MATERIAL[:cantidad] encantamiento=nivel ... [unbreakable]
+kit:
+  helmet: "NETHERITE_HELMET protection=4 unbreaking=3 unbreakable"
+  chestplate: "NETHERITE_CHESTPLATE protection=4 unbreaking=3 unbreakable"
+  leggings: "NETHERITE_LEGGINGS protection=4 unbreaking=3 unbreakable"
+  boots: "NETHERITE_BOOTS protection=4 unbreaking=3 feather_falling=4 unbreakable"
+  offhand: "TOTEM_OF_UNDYING"
+  items:
+    - "NETHERITE_SWORD sharpness=5 unbreaking=3 unbreakable"
+    - "NETHERITE_AXE sharpness=5 unbreaking=3 unbreakable"
+    - "BOW power=5 infinity=1 unbreakable"
+    - "ARROW"
+    - "SHIELD unbreakable"
+    - "GOLDEN_APPLE:32"
+    - "ENDER_PEARL:16"
+    - "TOTEM_OF_UNDYING:4"
